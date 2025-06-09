@@ -1,0 +1,33 @@
+<!-- src/views/errors/error.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/spotify-arcade/css/style.css">
+  <title>Error - <%= statusCode %>
+  </title>
+</head>
+
+<body>
+  <nav id="siteHeader">
+    <ul>
+      <li><a href="/spotify-arcade/">Home</a></li>
+    </ul>
+  </nav>
+
+  <h1>Oops! Something went wrong.</h1>
+
+  <h2>Error <%= statusCode %>: <%= message %>
+  </h2>
+  <% if (process.env.NODE_ENV !=='production' ) { %>
+    <p>Details:</p>
+    <pre><%= stack %></pre>
+    <% } %>
+      <a href="/spotify-arcade/">
+        <button>Return to Home</button>
+      </a>
+</body>
+
+</html>

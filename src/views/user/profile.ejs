@@ -1,0 +1,41 @@
+<!-- src/views/user/profile.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/spotify-arcade/css/style.css">
+  <title>Profile</title>
+</head>
+
+<body>
+  <nav id="siteHeader">
+    <ul>
+      <li><a href="/spotify-arcade/">Home</a></li>
+      <% if (isAuthenticated) { %>
+        <li><a href="/spotify-arcade/user/profile">Profile</a></li>
+        <li><a href="/spotify-arcade/games">Games</a></li>
+        <li><a href="/spotify-arcade/user/logout">Logout</a></li>
+      <% } %>
+    </ul>
+  </nav>
+
+  <div id="profileInfo">
+    <% if (isAuthenticated) { %>
+      <h1 id="welcomeMessage">Welcome to your profile, <%= user.display_name %>!</h1>
+      <div id="highScores">
+        <h2>Your high scores for each game mode:</h2>
+        <h3>Higher or Lower: <%= highScores.higherorlower %></h3>
+        <h3>Guess the Song: <%= highScores['guess-song'] %></h3>
+      </div>
+    <% } %>
+  </div>
+  <a id="logoutButton" href="/spotify-arcade/user/logout">
+    <button>LOG OUT</button>
+  </a>
+</body>
+
+</html>

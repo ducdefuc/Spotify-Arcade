@@ -1,0 +1,35 @@
+<!-- src/views/gameViews/gameOver.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/spotify-arcade/css/style.css">
+  <title>Game Over for <%= gameMode %></title>
+</head>
+
+<body>
+  <nav id="siteHeader">
+    <ul>
+      <li><a href="/spotify-arcade/">Home</a></li>
+      <% if (isAuthenticated) { %>
+        <li><a href="/spotify-arcade/user/profile">Profile</a></li>
+        <li><a href="/spotify-arcade/games">Games</a></li>
+        <li><a href="/spotify-arcade/user/logout">Logout</a></li>
+        <% } %>
+    </ul>
+  </nav>
+
+  <main id="gameOverMain">
+    <h1 id="gameOverMessage">Game Over!</h1>
+    <p id="finalScore">Your Score: <%= score %></p>
+    <p id="highScore">High score for <%= gameMode %>: <%= highScore.score %></p>
+    <a id="playAgainButton" href="/spotify-arcade/games/<%= gameMode %>">
+      <button>PLAY AGAIN</button>
+    </a>
+    <a id="gameMenuButton" href="/spotify-arcade/games">
+      <button>PLAY ANOTHER GAME</button>
+</body>
+
+</html> 

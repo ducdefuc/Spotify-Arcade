@@ -1,0 +1,70 @@
+<!-- src/views/gameViews/higherOrLower.ejs -->
+
+<!-- src/views/gameViews/higherOrLower.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/spotify-arcade/css/style.css">
+  <title>Higher Or Lower</title>
+
+  <script type="module" src="/spotify-arcade/js/higherOrLower/higherOrLowerInitialize.js" defer></script>
+</head>
+
+<body>
+  <nav id="siteHeader">
+    <ul>
+      <li><a href="/spotify-arcade/">Home</a></li>
+      <% if (isAuthenticated) { %>
+        <li><a href="/spotify-arcade/user/profile">Profile</a></li>
+        <li><a href="/spotify-arcade/games">Games</a></li>
+        <li><a href="/spotify-arcade/user/logout">Logout</a></li>
+        <% } %>
+    </ul>
+  </nav>
+
+  <main>
+    <% if (firstOptionArtist && secondOptionArtist) { %>
+      <div id="score-container">
+        <p id="score">Score: 0</p>
+      </div>
+      <div id="artist-info">
+        <div id="firstOptionArtist">
+          <img id="firstOptionImage"
+            src="<%= firstOptionArtist.images[0] ? firstOptionArtist.images[0].url : '/spotify-arcade/images/noimage.png' %>"
+            alt="<%= firstOptionArtist.name %>">
+          <h2 id="firstOptionName">
+            <%= firstOptionArtist.name %>
+          </h2>
+          <p id="firstOptionValue">
+            <%= firstOptionArtist.followers.total %>
+          </p>
+          <p>followers</p>
+        </div>
+        <div id="vs-container">
+          <h1 id="vs">VS</h1>
+        </div>
+        <div id="secondOptionArtist">
+          <img id="secondOptionImage"
+            src="<%= secondOptionArtist.images[0] ? secondOptionArtist.images[0].url : '/spotify-arcade/images/noimage.png' %>"
+            alt="<%= secondOptionArtist.name %>">
+          <h2 id="secondOptionName">
+            <%= secondOptionArtist.name %>
+          </h2>
+          <div id="button-container">
+            <button id="higher">Higher</button>
+            <button id="lower">Lower</button>
+          </div>
+          <p id="secondOptionValue">
+            <%= secondOptionArtist.followers.total %>
+          </p>
+          <p>followers</p>
+        </div>
+      </div>
+      <% } %>
+  </main>
+</body>
+
+</html>

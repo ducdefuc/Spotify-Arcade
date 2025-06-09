@@ -1,0 +1,45 @@
+<!-- src/views/home/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/spotify-arcade/css/style.css">
+  <title>Home</title>
+</head>
+
+<body>
+  <nav id="siteHeader">
+    <ul>
+      <li><a href="/spotify-arcade/">Home</a></li>
+      <% if (isAuthenticated) { %>
+        <li><a href="/spotify-arcade/user/profile">Profile</a></li>
+        <li><a href="/spotify-arcade/games">Games</a></li>
+        <li><a href="/spotify-arcade/user/logout">Logout</a></li>
+        <% } %>
+    </ul>
+  </nav>
+  <h1 id="welcomeMessage">Welcome to the Spotify Arcade!</h1>
+  <% if (isAuthenticated) { %>
+    <p id="loginMessage">You are logged in as <%= user.display_name %>
+    </p>
+    <div id="homeSelection">
+    <a id="profileButton" href="/spotify-arcade/user/profile">
+      <button>GO TO PROFILE</button>
+    </a>
+    <a id="gamesButton" href="/spotify-arcade/games">
+      <button>PLAY A GAME</button>
+    </a>
+    <a id="logoutButton" href="/spotify-arcade/user/logout">
+      <button>LOG OUT</button>
+    </a>
+    </div>
+    <% } else { %>
+      <a id="loginButton" href="/spotify-arcade/user/login">
+        <button>LOG IN WITH SPOTIFY</button>
+      </a>
+      <% } %>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/spotify-arcade/css/style.css">
+  <title>Game Menu</title>
+</head>
+
+<body>
+  <nav id="siteHeader">
+    <ul>
+      <li><a href="/spotify-arcade/">Home</a></li>
+      <% if (isAuthenticated) { %>
+        <li><a href="/spotify-arcade/user/profile">Profile</a></li>
+        <li><a href="/spotify-arcade/games">Games</a></li>
+        <li><a href="/spotify-arcade/user/logout">Logout</a></li>
+        <% } %>
+    </ul>
+  </nav>
+
+  <main id="gameSelection">
+    <h1>Games</h1>
+
+    <div class="gameContainer">
+      <a href="/spotify-arcade/games/higherorlower" id="higherOrLower">
+        <div class="gameInfo">
+          <h2>Higher or Lower</h2>
+        </div>
+      </a>
+
+      <a href="/spotify-arcade/games/guess-song" id="guessSong">
+        <div class="gameInfo">
+          <h2>Guess the song</h2>
+        </div>
+      </a>
+
+      <a href="" id="placeHolder2" class="locked">
+        <div class="gameInfo">
+          <h2>Not yet implemented...</h2>
+        </div>
+      </a>
+
+      <a href="" id="placeHolder3" class="locked">
+        <div class="gameInfo">
+          <h2>Not yet implemented...</h2>
+        </div>
+      </a>
+    </div>
+  </main>
+</body>
+
+</html>

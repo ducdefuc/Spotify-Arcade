@@ -1,0 +1,60 @@
+<!-- src/views/gameViews/guessSong.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/spotify-arcade/css/style.css">
+  <title>Guess The Song</title>
+
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  <script type="module" src="/spotify-arcade/js/guessSong/spotifyWebPlaybackSDK.js" defer></script>
+  <script type="module" src="/spotify-arcade/js/guessSong/guessSongInitialize.js" defer></script>
+</head>
+
+<body>
+  <nav id="siteHeader">
+    <ul>
+      <li><a href="/spotify-arcade/">Home</a></li>
+      <% if (isAuthenticated) { %>
+        <li><a href="/spotify-arcade/user/profile">Profile</a></li>
+        <li><a href="/spotify-arcade/games">Games</a></li>
+        <li><a href="/spotify-arcade/user/logout">Logout</a></li>
+        <% } %>
+    </ul>
+  </nav>
+
+  <main>
+    <% if (randomSong) { %>
+      <div id="score-container">
+        <p id="score">Score: 0</p>
+      </div>
+      <div id="song-info">
+        <div id="song-image">
+          <% if (randomSong.album.images[0]) { %>
+            <img id="songImage" src="<%= randomSong.album.images[0].url %>" alt="<%= randomSong.name %>">
+            <% } else { %>
+              <img id="noImage" src="/spotify-arcade/images/noimage.png" alt="No image available">
+              <% } %>
+        </div>
+        <div id="song-preview">
+          <button id="playPauseButton">Play</button>
+        </div>
+        <div id="guess-form">
+          <input type="text" id="guessInput" placeholder="Guess the song">
+          <button id="submitGuess">Submit Guess</button>
+        </div>
+        <!-- Hidden elements to store the song data -->
+        <div id="randomSongUri" style="display: none;">
+          <%= randomSong.uri %>
+        </div>
+        <div id="randomSongName" style="display: none;">
+          <%= randomSong.name %>
+        </div>
+      </div>
+      <% } %>
+  </main>
+</body>
+
+</html>
