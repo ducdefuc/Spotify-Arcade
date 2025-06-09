@@ -1,3 +1,3 @@
 A video demo of the project web application:
 
-https://youtu.be/D-KxVTQ8vKE
+[Demo](Spotify%20arcade%20demo.mp4)
