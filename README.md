@@ -18,7 +18,7 @@ Affected endpoints that the Spotify Arcade used:
 
 ## Demo
 
-[Demo](Spotify%20arcade%20demo.mp4)
+[Demo](https://youtu.be/jjbUTk7D-O0)
 
 ## 🎮 Game Modes
 
